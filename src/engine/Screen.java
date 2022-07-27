@@ -4,8 +4,8 @@ import java.lang.System;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import engineexceptions.ExceptionChecker;
-import engineexceptions.exceptions.IllegalFileException;
+import engineExceptions.ExceptionChecker;
+import engineExceptions.exceptions.IllegalFileException;
 
 public class Screen{
 	ExceptionChecker exc = new ExceptionChecker();

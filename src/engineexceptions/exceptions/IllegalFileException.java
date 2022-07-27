@@ -1,4 +1,4 @@
-package engineexceptions.exceptions;
+package engineExceptions.exceptions;
 
 import java.io.Serializable;
 import java.lang.Exception;

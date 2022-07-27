@@ -4,8 +4,8 @@ import java.lang.System;
 import java.lang.Math;
 import java.util.Arrays;
 
-import engineexceptions.ExceptionChecker;
-import engineexceptions.exceptions.OutOfBoundException;
+import engineExceptions.ExceptionChecker;
+import engineExceptions.exceptions.OutOfBoundException;
 
 import java.io.IOException;
 

@@ -1,9 +1,9 @@
-package engineexceptions;
+package engineExceptions;
 
 import java.nio.file.Path;
 
-import engineexceptions.checkers.*;
-import engineexceptions.exceptions.*;
+import engineExceptions.checkers.*;
+import engineExceptions.exceptions.*;
 
 public abstract class Implementer implements CanvasException,ScreenException{
 	public void CheckCanvasDimensionException(int width,int height) throws OutOfBoundException
