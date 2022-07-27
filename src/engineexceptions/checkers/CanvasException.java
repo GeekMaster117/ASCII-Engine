@@ -1,6 +1,6 @@
-package engineexceptions.highlevelexceptions;
+package engineexceptions.checkers;
 
-import engineexceptions.lowlevelexceptions.OutOfBoundException;
+import engineexceptions.exceptions.OutOfBoundException;
 
 public interface CanvasException {
 	public void CheckCanvasDimensionException(int width,int height) throws OutOfBoundException;

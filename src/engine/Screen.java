@@ -3,21 +3,33 @@ package engine;
 import java.lang.System;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+
+import enginecore.MessageDisplay;
 import engineexceptions.ExceptionChecker;
+import engineexceptions.exceptions.IllegalFileException;
 
 public class Screen{
-	ExceptionChecker exc;
+	ExceptionChecker exc = new ExceptionChecker();
 	
 	public void StartConsole(Path path)
 	{
-		if(path.toString().endsWith(".class"))
+		try
 		{
-			String str = path.toString();
-			str = str.substring(0, str.length() - 6);
-			path = Paths.get(str);
-		}	
-		CheckSameClassException(path);
+			exc.CheckSameClassException(path);
+		}
+		catch(IllegalFileException msg)
+		{
+			try
+			{
+				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + MessageDisplay.path.toAbsolutePath().toString()
+						+ " && java enginecore.MessageDisplay \"" + msg.getMessage() + "\"\"");
+			}
+			catch(IOException msg1)
+			{
+				System.out.println(msg1.getMessage());
+			}
+			System.exit(1);
+		}
 		try
         {
 			Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + path.getParent().toString()

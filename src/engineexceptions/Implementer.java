@@ -1,8 +1,8 @@
 package engineexceptions;
 
 import java.nio.file.Path;
-import engineexceptions.highlevelexceptions.*;
-import engineexceptions.lowlevelexceptions.OutOfBoundException;
+import engineexceptions.checkers.*;
+import engineexceptions.exceptions.*;
 
 public abstract class Implementer implements CanvasException,ScreenException{
 	public void CheckCanvasDimensionException(int width,int height) throws OutOfBoundException
@@ -19,8 +19,15 @@ public abstract class Implementer implements CanvasException,ScreenException{
 		if(y < 0 || y >= height)
 			throw new OutOfBoundException(y,0,height);
 	}
-	public void CheckSameClassException(Path TargetPath)
+	public void CheckSameClassException(Path TargetPath) throws IllegalFileException
 	{
-		if(Thread.currentThread().getStackTrace()[3].getClass().equals(TargetPath.getClass()));
+		String TargetClass = TargetPath.getFileName().toString();
+		String CallerClass = Thread.currentThread().getStackTrace()[3].getFileName();
+		if(CallerClass.endsWith(".java"))
+			CallerClass = CallerClass.substring(0, CallerClass.length() - 5);
+		else if(CallerClass.endsWith(".class"))
+			CallerClass = CallerClass.substring(0, CallerClass.length() - 6);
+		if(TargetClass.equals(CallerClass))
+			throw new IllegalFileException(TargetClass, "Any file other than \'" + TargetClass + "\'");
 	}
 }

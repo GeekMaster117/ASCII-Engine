@@ -5,7 +5,8 @@ import java.lang.Math;
 import java.util.Arrays;
 import enginecore.MessageDisplay;
 import engineexceptions.ExceptionChecker;
-import engineexceptions.lowlevelexceptions.OutOfBoundException;
+import engineexceptions.exceptions.OutOfBoundException;
+
 import java.io.IOException;
 
 public class Canvas {
