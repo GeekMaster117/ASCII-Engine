@@ -1,6 +1,7 @@
 package engineexceptions.checkers;
 
 import java.nio.file.Path;
+
 import engineexceptions.exceptions.IllegalFileException;
 
 public interface ScreenException {

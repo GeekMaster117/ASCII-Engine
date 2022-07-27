@@ -3,7 +3,7 @@ package engine;
 import java.lang.System;
 import java.lang.Math;
 import java.util.Arrays;
-import enginecore.MessageDisplay;
+
 import engineexceptions.ExceptionChecker;
 import engineexceptions.exceptions.OutOfBoundException;
 
@@ -25,8 +25,7 @@ public class Canvas {
 		{
 			try
 			{
-				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + MessageDisplay.path.toAbsolutePath().toString()
-						+ " && java enginecore.MessageDisplay \"" + msg.getMessage() + "\"\"");
+				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K echo " + msg.getMessage());
 			}
 			catch(IOException msg1)
 			{
@@ -50,8 +49,7 @@ public class Canvas {
 		{
 			try
 			{
-				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + MessageDisplay.path.toAbsolutePath().toString()
-						+ " && java enginecore.MessageDisplay \"" + msg.getMessage() + "\"\"");
+				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K echo " + msg.getMessage());
 			}
 			catch(IOException msg1)
 			{
@@ -98,8 +96,7 @@ public class Canvas {
 		{
 			try
 			{
-				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + MessageDisplay.path.toAbsolutePath().toString()
-						+ " && java enginecore.MessageDisplay \"" + msg.getMessage() + "\"\"");
+				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K echo " + msg.getMessage());
 			}
 			catch(IOException msg1)
 			{
@@ -121,8 +118,7 @@ public class Canvas {
 		{
 			try
 			{
-				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + MessageDisplay.path.toAbsolutePath().toString()
-						+ " && java enginecore.MessageDisplay \"" + msg.getMessage() + "\"\"");
+				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K echo " + msg.getMessage());
 			}
 			catch(IOException msg1)
 			{

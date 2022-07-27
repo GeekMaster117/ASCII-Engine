@@ -4,7 +4,6 @@ import java.lang.System;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import enginecore.MessageDisplay;
 import engineexceptions.ExceptionChecker;
 import engineexceptions.exceptions.IllegalFileException;
 
@@ -21,8 +20,7 @@ public class Screen{
 		{
 			try
 			{
-				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K \"cd " + MessageDisplay.path.toAbsolutePath().toString()
-						+ " && java enginecore.MessageDisplay \"" + msg.getMessage() + "\"\"");
+				Runtime.getRuntime().exec("cmd /c Start cmd.exe /K echo " + msg.getMessage());
 			}
 			catch(IOException msg1)
 			{
