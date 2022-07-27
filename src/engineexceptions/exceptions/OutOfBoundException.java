@@ -1,6 +1,7 @@
-package engineexceptions.lowlevelexceptions;
+package engineexceptions.exceptions;
 
 import java.io.Serializable;
+import java.lang.Exception;
 
 public class OutOfBoundException extends Exception implements Serializable{
 	private static final long serialVersionUID = 575865874;
