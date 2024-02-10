@@ -70,3 +70,5 @@ HOW TO USE ASCII Engine.h:-
 -> clear_display() - clears the command prompt
 
 -> initialise_object() - initialises the object by setting its x and y position to 0, width and height to 1, paint character to '*', velocity and acceleration to 0; arguments - object pointer
+
+-> initialise_objects() -  works the same as initialise_object() but initialises multiple canvases at once; arguments - object pointer array, length of the array (int)
