@@ -91,8 +91,38 @@ HOW TO USE ASCII Engine.h:-
 
 -> set_acceleration() - sets acceleration for the object; arguments - object pointer, horizontal acceleration (float), vertical acceleration (float)
 
--> detect_collision_canvas() - detects whether the object is colliding with any character on the canvas other than ' '; arguments - object pointer, canvas pointer; return type - int
+-> detect_collision_canvas() - checks whether an object is colliding with any character on the canvas other than ' '; arguments - object pointer, canvas pointer; return type - int
 
--> detect_collision_between() - detects whether two objects are colliding with each other; arguments - object pointer 1, object pointer 2; return type - int
+-> detect_collision_between() - checks whether two objects are colliding with each other; arguments - object pointer 1, object pointer 2; return type - int
 
--> 
+-> detect_collision_between_multiple() - checks whether an object is colliding with any of the other objects specified; arguments - object pointer, object pointer array, length of the array (int); return type - int
+
+-> detect_clipping_between() - checks whether two objects are clipping with each other; arguments - object pointer 1, object pointer 2; return type - int
+
+-> detect_clipping_between_multiple() - checks whether an object is clipping with any of the other objects specified; arguments - object pointer, object pointer array, length of the array (int); return type - int
+
+-> undo_clipping() - tries to pull objects away from each other to avoid clipping; arguments - object pointer 1, object pointer 2, which object has to be pulled 0 for first object 1 for the second object (int), the direction in which object has to be pulled 0 for north 1 for north-east 2 for east 3 for south-east 4 for south 5 for south-west 6 for west 7 for north-west (int), maximum number of tries the object has to be pulled to avoid clipping before giving up (int), resets both the objects if undoing clipping has failed 0 if resetting should be done 1 if resetting should not be done.
+
+-> simulate_object() - simulates the object's interaction with physics by moving the object using its inherent velocity and acceleration; arguments - object pointer
+
+-> simulate_objects() - works the same as simulate_object() but simulates multiple objects at once; arguments - object pointer array, length of the array (int)
+
+-> display_object() - puts the object on the canvas; arguments - object pointer, canvas pointer
+
+-> diaply_objects() - works the same as display_object() but puts multiple objects at once on the canvas; arguments - object pointer array, length of the array (int), canvas pointer
+
+-> display_object_border() - works the same as display_object() but only puts the border of the object on the canvas; arguments - object pointer, canvas pointer
+
+-> display_objects_border() - works the same as displat_objects() but only puts the border of the objects on the canvas; arguments - object pointer array, length of the array (int), canvas pointer
+
+-> get_input() - takes input if the user gives it when the function is called; arguments - character pointer
+
+-> set_refresh_rate() - sets the refresh rate of the command prompt; arguments - refresh rate (double)
+
+-> display() - displays the canvas onto the command prompt; arguments - canvas pointer
+
+-> timed_display() - works the same as display but does not execute if the time between when the last frame was displayed and the current time is less than 1 / refresh rate; arguments - canvas pointer
+
+-> refresh() - works the same as display() but clears the command prompt before displaying the canvas; arguments - canvas pointer
+
+-> timed_refresh() - works the same as timed_display() but clears the command prompt before displaying the canvas; arguments - canvas pointer
