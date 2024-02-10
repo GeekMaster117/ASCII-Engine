@@ -56,3 +56,17 @@ HOW TO USE ASCII Engine.h:-
 -> insert_y_line() - inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every y coordinate from the start position to the end position has been filled; arguments - canvas pointer, paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
 
 -> insert_rect() - inserts a rectangle from a specified position to the other opposite corner whose position is calculated using specified width and height; arguments - canvas pointer, paint character (char), x coordinate (int), y coordinate (int), width (int), height (int)
+
+-> insert_solid_rect() - inserts a solid rectangle from a specified position to the other opposite corner whose position is calculated using specified width and height; arguments - canvas pointer, paint character (char), x coordinate (int), y coordinate (int), width (int), height (int)
+
+-> insert_x_ellipse() - inserts an ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the major axis to the other end of the major axis has been filled; arguments - canvas pointer, paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+-> insert_solid_x_ellipse() - inserts a solid ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the major axis to the other end of the major axis has been filled; arguments - canvas pointer, paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+-> insert_y_ellipse() - inserts an ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the minor axis to the other end of the minor axis has been filled; arguments - canvas pointer, paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+-> insert_solid_y_ellipse() - inserts a solid ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the minor axis to the other end of the minor axis has been filled; arguments - canvas pointer, paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+-> clear_display() - clears the command prompt
+
+-> initialise_object() - initialises the object by setting its x and y position to 0, width and height to 1, paint character to '*', velocity and acceleration to 0; arguments - object pointer
