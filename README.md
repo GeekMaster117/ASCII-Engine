@@ -72,3 +72,27 @@ HOW TO USE ASCII Engine.h:-
 -> initialise_object() - initialises the object by setting its x and y position to 0, width and height to 1, paint character to '*', velocity and acceleration to 0; arguments - object pointer
 
 -> initialise_objects() -  works the same as initialise_object() but initialises multiple canvases at once; arguments - object pointer array, length of the array (int)
+
+-> set_object_coords() - sets the position for the object; arguments - object pointer, x coordinate (int), y coordinate (int)
+
+-> set_object_dimensions() - sets the dimensions for the object; arguments - object pointer, width (int), height (int)
+
+-> paint_object() - paints the object with a character; arguments - object pointer, paint character (char)
+
+-> set_hor_velocity() - sets the horizontal velocity for the object; arguments - object pointer, horizontal velocity (float)
+
+-> set_ver_velocity() - sets the vertical velocity for the object; arguments - object pointer, vertical velocity (float)
+
+-> set_velocity() - sets the velocity for the object; arguments - object pointer, horizontal velocity (float), vertical velocity (float)
+
+-> set_hor_acceleration() - sets horizontal acceleration for the object; arguments - object pointer, horizontal acceleration (float)
+
+-> set_ver_acceleration() - sets vertical acceleration for the object; arguments - object pointer, vertical acceleration (float)
+
+-> set_acceleration() - sets acceleration for the object; arguments - object pointer, horizontal acceleration (float), vertical acceleration (float)
+
+-> detect_collision_canvas() - detects whether the object is colliding with any character on the canvas other than ' '; arguments - object pointer, canvas pointer; return type - int
+
+-> detect_collision_between() - detects whether two objects are colliding with each other; arguments - object pointer 1, object pointer 2; return type - int
+
+-> 
