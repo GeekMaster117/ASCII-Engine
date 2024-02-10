@@ -144,7 +144,7 @@ HOW TO USE ASCII Engine.jar:-
 
 --> Method - InsertXLine() - Inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every x coordinate from the start position to the end position has been filled; arguments - paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+---------------------------------------------------------------------------------
 
 -> Class - Screen - Provides methods to interact with the command prompt.
 
