@@ -33,17 +33,30 @@ ADVANTAGES OF ASCII Engine.jar over ASCII Engine.h:-
 ----------------------------------------------------------------------------------
 HOW TO USE ASCII Engine.jar:-
 
--> Class - Canvas - Provides methods to draw graphics.
+-> Class - Canvas - Provides methods to draw graphics
+.
 --> Constructor - Creates a canvas object with specified width and height.
+
 --> Method - ChangeDimensions() - Changes the dimensions of the canvas.
+
 --> Method - ClearCanvas() - Clears the entire canvas by replacing all the characters with ' '.
+
 --> Method - FillCanvas() -  Fills the entire canvas with a character; arguments - paint character (char)
+
 --> Method - InsertChar() - Inserts a single character in the specified position on the canvas; arguments - paint character (char), x coordinate (int), y coordinate (int)
+
 --> Method - InsertXLine() - Inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every x coordinate from the start position to the end position has been filled; arguments - paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
 
+---------------------------------------------------------------------------------
+
 -> Class - Screen - Provides methods to interact with the command prompt.
+
 --> Method - StartConsole() - Useful when the application needs to be packaged into a jar file. Jar files do not start the command prompt when clicked, so to start the command prompt the StartConsole can be called from inside the jar file to run a Java program on the command prompt, the java program running on the newly started command prompt will have all the function calls to draw the graphics while the java file which used StartConsole function call sole purpose is to start the command prompt; arguments - Path to the java file which has all the function calls required to draw the graphics (Path object)
+
 --> Method - Display() - Displays the canvas onto the command prompt; arguments - Canvas object
+
 --> Method - PreRefresh() - Clears the command prompt and then displays the canvas onto it; arguments - Canvas object
+
 --> Method - PostRefresh() - Displays the canvas onto the command prompt then clears it; arguments - Canvas object
+
 --> Method - ClearConsole() - Clears the command prompt.
