@@ -288,7 +288,7 @@ void clear_display()
 	system("cls");
 }
 
-void initialise_object(object *optr, int length)
+void initialise_object(object *optr)
 {
 	optr -> x = 0;
 	optr -> y = 0;
