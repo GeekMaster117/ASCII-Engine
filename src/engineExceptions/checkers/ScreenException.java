@@ -5,5 +5,5 @@ import java.nio.file.Path;
 import engineExceptions.exceptions.IllegalFileException;
 
 public interface ScreenException {
-	public void CheckSameClassException(Path path) throws IllegalFileException;
+	public void checkSameClassException(Path path) throws IllegalFileException;
 }

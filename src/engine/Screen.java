@@ -8,13 +8,14 @@ import engineExceptions.ExceptionChecker;
 import engineExceptions.exceptions.IllegalFileException;
 
 public class Screen{
+	
 	ExceptionChecker exc = new ExceptionChecker();
 	
-	public void StartConsole(Path path)
+	public void startConsole(Path path)
 	{
 		try
 		{
-			exc.CheckSameClassException(path);
+			exc.checkSameClassException(path);
 		}
 		catch(IllegalFileException msg)
 		{
@@ -50,19 +51,19 @@ public class Screen{
 		}
 	}
 	
-	public void PreRefresh(Canvas obj)
+	public void preRefresh(Canvas obj)
 	{
-		ClearConsole();
+		clearConsole();
 		display(obj);
 	}
 	
-	public void PostRefresh(Canvas obj)
+	public void postRefresh(Canvas obj)
 	{
 		display(obj);
-		ClearConsole();
+		clearConsole();
 	}
 	
-	public void ClearConsole()
+	public void clearConsole()
 	{
 		try
 		{
