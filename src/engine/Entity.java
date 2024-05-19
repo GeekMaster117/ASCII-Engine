@@ -227,10 +227,11 @@ public class Entity
 		return false;
 	}
 	
-	public void undoClipping(Entity en, int maxTries)
+	public boolean undoClipping(Entity en, int maxTries, boolean resetIfFailed)
 	{
 		if(!this.detectClipping(en))
-			return;
+			return true;
+		int prevX = this.x, prevY = this.y;
 		double angle = Math.atan2(this.y - en.y, this.x - en.x);
 		angle = Math.toDegrees(angle);
 		if(angle < 0)
@@ -241,7 +242,7 @@ public class Entity
             {
             	++this.x;
             	if(!this.detectClipping(en))
-            		break;
+            		return true;
             }
         }
 		else if (angle >= 22.5 && angle < 67.5)
@@ -251,7 +252,7 @@ public class Entity
 				++this.x;
 				--this.y;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
 		else if (angle >= 67.5 && angle < 112.5)
@@ -260,7 +261,7 @@ public class Entity
 			{
 				--this.y;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
 		else if (angle >= 112.5 && angle < 157.5)
@@ -270,7 +271,7 @@ public class Entity
 				--this.x;
 				--this.y;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
 		else if (angle >= 157.5 && angle < 202.5)
@@ -279,7 +280,7 @@ public class Entity
 			{
 				--this.x;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
 		else if (angle >= 202.5 && angle < 247.5)
@@ -289,7 +290,7 @@ public class Entity
 				--this.x;
 				++this.y;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
 		else if (angle >= 247.5 && angle < 292.5)
@@ -298,7 +299,7 @@ public class Entity
 			{
 				++this.y;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
 		else if (angle >= 292.5 && angle < 337.5)
@@ -308,9 +309,15 @@ public class Entity
 				++this.x;
 				++this.y;
 				if(!this.detectClipping(en))
-            		break;
+            		return true;
 			}
         }
+		if(resetIfFailed)
+		{
+			this.x = prevX;
+			this.y = prevY;
+		}
+		return false;
 	}
 	
 	public void simulateEntity()

@@ -32,9 +32,9 @@ public class Example {
 			box.simulateEntity();
 			
 			if(box.detectClipping(wall1))
-				box.undoClipping(wall1, 3);
+				box.undoClipping(wall1, 3, false);
 			if(box.detectClipping(wall2))
-				box.undoClipping(wall2, 3);
+				box.undoClipping(wall2, 3, false);
 			
 			if(box.detectCollisionLeft(wall1) || box.detectCollisionRight(wall2))
 				box.setHorVelocity(-box.getHorVelocity());
