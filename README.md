@@ -134,15 +134,31 @@ HOW TO USE ASCII Engine.jar:-
 
 --> Constructor - Creates a canvas object with specified width and height.
 
---> Method - ChangeDimensions() - Changes the dimensions of the canvas.
+--> Method - changeDimensions() - Changes the dimensions of the canvas.
 
---> Method - ClearCanvas() - Clears the entire canvas by replacing all the characters with ' '.
+--> Method - clearCanvas() - Clears the entire canvas by replacing all the characters with ' '.
 
---> Method - FillCanvas() -  Fills the entire canvas with a character; arguments - paint character (char)
+--> Method - fillCanvas() -  Fills the entire canvas with a character; arguments - paint character (char)
 
---> Method - InsertChar() - Inserts a single character in the specified position on the canvas; arguments - paint character (char), x coordinate (int), y coordinate (int)
+--> Method - insertChar() - Inserts a single character in the specified position on the canvas; arguments - paint character (char), x coordinate (int), y coordinate (int)
 
---> Method - InsertXLine() - Inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every x coordinate from the start position to the end position has been filled; arguments - paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
+--> Method - insertXLine() - Inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every x coordinate from the start position to the end position has been filled; arguments - paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
+
+--> Method - insertYLine() - Inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every y coordinate from the start position to the end position has been filled; arguments - paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
+
+--> Method - insertRect() - Inserts a rectangle from a specified position to the other opposite corner whose position is calculated using specified width and height; arguments - paint character (char), x coordinate (int), y coordinate (int), width (int), height (int)
+
+--> Method - insertSolidRect() - Inserts a solid rectangle from a specified position to the other opposite corner whose position is calculated using specified width and height; arguments - paint character (char), x coordinate (int), y coordinate (int), width (int), height (int)
+
+--> Method - insertXEllipse() - Inserts an ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the major axis to the other end of the major axis has been filled; arguments - paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+--> Method - insertEllipse() - Inserts a solid ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the major axis to the other end of the major axis has been filled; arguments - paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+--> Method - insertSolidXEllipse() - Inserts a solid ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the major axis to the other end of the major axis has been filled; arguments - paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+--> Method - insertYEllipse() - Inserts an ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the minor axis to the other end of the minor axis has been filled; arguments - paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
+
+--> Method - insertSolidYEllipse() - Inserts a solid ellipse whose midpoint is the specified position and draws the ellipse using the specified major and minor axis, when drawing the ellipse it makes sure that every x coordinate from the one end of the minor axis to the other end of the minor axis has been filled; arguments - paint character (char), midpoint x coordinate (int), midpoint y coordinate (int), major axis (int), minor axis (int)
 
 ---------------------------------------------------------------------------------
 
