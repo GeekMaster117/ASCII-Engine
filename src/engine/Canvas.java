@@ -72,6 +72,16 @@ public class Canvas {
 			}
 	}
 	
+	public int getWidth()
+	{
+		return this.width;
+	}
+	
+	public int getHeight()
+	{
+		return this.height;
+	}
+	
 	public void clearCanvas()
 	{
 		for(int i = 0;i < data.length;i++)
