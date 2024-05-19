@@ -137,7 +137,7 @@ HOW TO USE ASCII Engine.jar:-
 
 --> Method - detectClippingMultiple() - Checks whether the entity is clipping with any of the other entities specified; arguments - Entity array; return type - boolean
 
---> Method - undoClipping() - Tries to pull the entity away from the other entity to avoid clipping; arguments - maximum number of tries the object has to be pulled to avoid clipping before giving up (int), reset if failed (boolean)
+--> Method - undoClipping() - Tries to pull the entity away from the other entity to avoid clipping and returns whether the two entities are clipping after trying; arguments - maximum number of tries the object has to be pulled to avoid clipping before giving up (int), reset if failed (boolean), return type - boolean
 
 --> Method - simulateEntity() - Simulates the entity's interaction with physics by moving the object using its inherent velocity and acceleration
 
