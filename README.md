@@ -135,7 +135,6 @@ HOW TO USE ASCII Engine.jar:-
 
 --> Method - detectClipping() - Checks whether the entity is clipping with another entity passed as an argument; arguments - Entity object; return type - boolean
 
-----------------------------------------------------------------------
 --> Method - detectClippingMultiple() - Checks whether the entity is clipping with any of the other entities specified; arguments - Entity array; return type - boolean
 
 --> Method - undoClipping() - Tries to pull the entity away from the other entity to avoid clipping; arguments - maximum number of tries the object has to be pulled to avoid clipping before giving up (int), reset if failed (boolean)
@@ -151,3 +150,5 @@ HOW TO USE ASCII Engine.jar:-
 --> Method - displayEntityBorder() - Works the same as displayEntity() but only displays border; arguments - Canvas object
 
 --> Method - displayEntitiesBorder() - Works the same as displayEntities() but only displays border; arguments - Canvas object
+
+-------------------------------------------------------------------------------------
