@@ -39,11 +39,17 @@ HOW TO USE ASCII Engine.jar:-
 
 --> Method - changeDimensions() - Changes the dimensions of the canvas.
 
+--> Method - getWidth() - Returns the width; return type - int
+
+--> Method - getHeight() - Returns the height; return type - int
+
 --> Method - clearCanvas() - Clears the entire canvas by replacing all the characters with ' '.
 
 --> Method - fillCanvas() -  Fills the entire canvas with a character; arguments - paint character (char)
 
 --> Method - insertChar() - Inserts a single character in the specified position on the canvas; arguments - paint character (char), x coordinate (int), y coordinate (int)
+
+--> Method - insertString() - Inserts a string in a box container; arguments - string (String), x coordinate (int), y coordinate (int), box width (int), box height (int)
 
 --> Method - insertXLine() - Inserts a line from one position to another position on the canvas, when drawing the line it makes sure that every x coordinate from the start position to the end position has been filled; arguments - paint character (char), start x coordinate (int), start y coordinate (int), end x coordinate (int), end y coordinate (int)
 
