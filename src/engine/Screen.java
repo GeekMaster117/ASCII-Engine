@@ -43,12 +43,15 @@ public class Screen{
 	
 	public void display(Canvas obj)
 	{
-		for(int i = 0;i < obj.height;i++)
+		StringBuilder str = new StringBuilder();
+		for(int i = 0; i < obj.height; ++i)
 		{
-			for(int j = 0;j < obj.width;j++)
-				System.out.print(obj.data[i][j]);
-			System.out.println();
+			for(int j = 0;j < obj.width; ++j)
+				str.append(obj.data[i][j]);
+			if(i < obj.height - 1)
+				str.append('\n');
 		}
+		System.out.print(str);
 	}
 	
 	public void preRefresh(Canvas obj)
