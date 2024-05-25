@@ -34,8 +34,10 @@ ADVANTAGES OF ASCII Engine.jar over ASCII Engine.h:-
 HOW TO USE ASCII Engine.jar:-
 
 -> Class - Canvas - Provides methods to draw graphics
-.
+
 --> Constructor - Creates a canvas object with specified width and height.
+
+--> Method - getData() - Returns the Canvas data in the format of String; return type - String
 
 --> Method - changeDimensions() - Changes the dimensions of the canvas.
 
