@@ -134,6 +134,8 @@ HOW TO USE ASCII Engine.jar:-
 
 --> Constructor - Creates a canvas object with specified width and height.
 
+--> Method - getData() - Returns the Canvas data in the format of String; return type - String
+
 --> Method - changeDimensions() - Changes the dimensions of the canvas.
 
 --> Method - getWidth() - Returns the width; return type - int
