@@ -39,6 +39,19 @@ public class Canvas {
 		clearCanvas();
 	}
 	
+	public String getData()
+	{
+		StringBuilder str = new StringBuilder();
+		for(int i = 0; i < this.height; ++i)
+		{
+			for(int j = 0;j < this.width; ++j)
+				str.append(this.data[i][j]);
+			if(i < this.height - 1)
+				str.append('\n');
+		}
+		return str.toString();
+	}
+	
 	public void changeDimensions(int width,int height)
 	{
 		try
