@@ -14,7 +14,7 @@ public class Example {
 		
 		box.setPosition(50, 10);
 		box.setDimensions(10, 5);
-		box.setHorVelocity(2);
+		box.setHorVelocity(5);
 		box.setPaintChar('*');
 		
 		wall1.setPosition(0, 0);
@@ -25,19 +25,29 @@ public class Example {
 		wall2.setDimensions(3, 20);
 		wall2.setPaintChar('|');
 		
+		box.startSimluation();
+		
 		while(true)
 		{
 			background.clearCanvas();
 			
-			box.simulateEntity();
-			
 			if(box.detectClipping(wall1))
-				box.undoClipping(wall1, 3, false);
-			if(box.detectClipping(wall2))
-				box.undoClipping(wall2, 3, false);
+			{
+				box.stopSimulation();
+				box.undoClipping(wall1, 6, false);
+				box.startSimluation();
+			}
+			else if(box.detectClipping(wall2))
+			{
+				box.stopSimulation();
+				box.undoClipping(wall2, 6, false);
+				box.startSimluation();
+			}
 			
-			if(box.detectCollisionLeft(wall1) || box.detectCollisionRight(wall2))
-				box.setHorVelocity(-box.getHorVelocity());
+			if(box.detectCollisionLeft(wall1))
+				box.setHorVelocity(Math.abs(box.getHorVelocity()));
+			else if(box.detectCollisionRight(wall2))
+				box.setHorVelocity(-Math.abs(box.getHorVelocity()));
 			
 			Entity.displayEntities(arr, background);
 			console.preRefresh(background);

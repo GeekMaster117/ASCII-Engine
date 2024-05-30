@@ -9,7 +9,7 @@ import engineExceptions.exceptions.IllegalFileException;
 
 public class Screen{
 	
-	ExceptionChecker exc = new ExceptionChecker();
+	private ExceptionChecker exc = new ExceptionChecker();
 	
 	public void startConsole(Path path)
 	{
@@ -41,28 +41,28 @@ public class Screen{
         }
 	}
 	
-	public void display(Canvas obj)
+	public void display(Canvas cs)
 	{
 		StringBuilder str = new StringBuilder();
-		for(int i = 0; i < obj.height; ++i)
+		for(int i = 0; i < cs.getHeight(); ++i)
 		{
-			for(int j = 0;j < obj.width; ++j)
-				str.append(obj.data[i][j]);
-			if(i < obj.height - 1)
+			for(int j = 0;j < cs.getWidth(); ++j)
+				str.append(cs.getData(j, i));
+			if(i < cs.getHeight() - 1)
 				str.append('\n');
 		}
 		System.out.print(str);
 	}
 	
-	public void preRefresh(Canvas obj)
+	public void preRefresh(Canvas cs)
 	{
 		clearConsole();
-		display(obj);
+		display(cs);
 	}
 	
-	public void postRefresh(Canvas obj)
+	public void postRefresh(Canvas cs)
 	{
-		display(obj);
+		display(cs);
 		clearConsole();
 	}
 	

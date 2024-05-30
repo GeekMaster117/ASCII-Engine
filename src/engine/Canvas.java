@@ -9,10 +9,11 @@ import engineExceptions.exceptions.OutOfBoundException;
 
 import java.io.IOException;
 
-public class Canvas {
-	char data[][];
-	int width,height;
-	ExceptionChecker exc;
+public class Canvas
+{
+	private char data[][];
+	private int width,height;
+	private ExceptionChecker exc;
 	
 	public Canvas(int width,int height)
 	{
@@ -37,6 +38,13 @@ public class Canvas {
 		this.height = height;
 		this.data = new char[height][width];
 		clearCanvas();
+	}
+	
+	public char getData(int x, int y)
+	{
+		if(x < 0 || x >= this.getWidth() || y < 0 || y >= this.getHeight())
+			return ' ';
+		return this.data[y][x];
 	}
 	
 	public String getData()
@@ -79,9 +87,9 @@ public class Canvas {
 			for(int j = 0;j < this.width;j++)
 			{
 				if(i >= temp.length || j >= temp[0].length)
-					this.data[i][j] = ' ';
+					this.insertChar(' ', j, i);
 				else
-					this.data[i][j] = temp[i][j];
+					this.insertChar(temp[i][j], j, i);
 			}
 	}
 	
@@ -97,16 +105,16 @@ public class Canvas {
 	
 	public void clearCanvas()
 	{
-		for(int i = 0;i < data.length;i++)
-			for(int j = 0;j < data[i].length;j++)
-				this.data[i][j] = ' ';
+		for(int i = 0; i < this.getHeight(); ++i)
+			for(int j = 0; j < this.getWidth(); ++j)
+				this.insertChar(' ', j, i);
 	}
 	
 	public void fillCanvas(char paintChar)
 	{
-		for(int i = 0;i < this.height;i++)
-			for(int j = 0;j < this.width;j++)
-				this.data[i][j] = paintChar;
+		for(int i = 0; i < this.getHeight(); ++i)
+			for(int j = 0; j < this.getWidth(); ++j)
+				this.insertChar(paintChar, j, i);
 	}
 	
 	public void insertChar(char paintChar,int x,int y)
@@ -134,6 +142,7 @@ public class Canvas {
 			}
 			System.exit(1);
 		}
+		
 		int pointerX = x, pointerY = y;
 		for(char c: str.toCharArray())
 		{
@@ -157,36 +166,44 @@ public class Canvas {
 		else if(x1 == x2)
 		{
 			if(y1 < y2)
-				for(int i = y1;i <= y2;i++)insertChar(paintChar, x1, i);
+				for(int i = y1; i <= y2; ++i)
+					insertChar(paintChar, x1, i);
 			else
-				for(int i = y2;i <= y1;i++)insertChar(paintChar, x1, i);
+				for(int i = y2; i <= y1; ++i)
+					insertChar(paintChar, x1, i);
 		}
 		else if(y1 == y2)
 		{
 			if(x1 < x2)
-				for(int i = x1;i <= x2;i++)insertChar(paintChar, i, y1);
+				for(int i = x1; i <= x2; ++i)
+					insertChar(paintChar, i, y1);
 			else
-				for(int i = x2;i <= x1;i++)insertChar(paintChar, i, y1);
+				for(int i = x2; i <= x1; ++i)
+					insertChar(paintChar, i, y1);
 		}
 		else
 		{
-			double slope = (double)(y1 - y2)/(x1 - x2),y_point;
+			double slope = (double)(y1 - y2)/(x1 - x2), y_point;
 			insertChar(paintChar, x1, y1);
 			insertChar(paintChar, x1, y1);
-			if(x1 < x2)for(int i = x1 + 1;i < x2;i++)
-			{
-				y_point = (double)(slope * (i - x1)) + y1;
-				if(y_point - Math.floor(y_point) < 0.5)y_point = Math.floor(y_point);
-				else y_point = Math.ceil(y_point);
-				insertChar(paintChar, i, (int)y_point);
-			}
-			else for(int i = x2 + 1;i < x1;i++)
-			{
-				y_point = (double)(slope * (i - x1)) + y1;
-				if(y_point - Math.floor(y_point) < 0.5)y_point = Math.floor(y_point);
-				else y_point = Math.ceil(y_point);
-				insertChar(paintChar, i, (int)y_point);
-			}
+			if(x1 < x2)
+				for(int i = x1 + 1; i < x2; ++i)
+				{
+					y_point = (double)(slope * (i - x1)) + y1;
+					if(y_point - Math.floor(y_point) < 0.5)
+						y_point = Math.floor(y_point);
+					else
+						y_point = Math.ceil(y_point);
+					insertChar(paintChar, i, (int)y_point);
+				}
+			else
+				for(int i = x2 + 1; i < x1; ++i)
+				{
+					y_point = (double)(slope * (i - x1)) + y1;
+					if(y_point - Math.floor(y_point) < 0.5)y_point = Math.floor(y_point);
+					else y_point = Math.ceil(y_point);
+					insertChar(paintChar, i, (int)y_point);
+				}
 		}
 	}
 	
@@ -197,36 +214,46 @@ public class Canvas {
 		else if(x1 == x2)
 		{
 			if(y1 < y2)
-				for(int i = y1;i <= y2;i++)insertChar(paintChar, x1, i);
+				for(int i = y1; i <= y2; ++i)
+					insertChar(paintChar, x1, i);
 			else
-				for(int i = y2;i <= y1;i++)insertChar(paintChar, x1, i);
+				for(int i = y2; i <= y1; ++i)
+					insertChar(paintChar, x1, i);
 		}
 		else if(y1 == y2)
 		{
 			if(x1 < x2)
-				for(int i = x1;i <= x2;i++)insertChar(paintChar, i, y1);
+				for(int i = x1; i <= x2; ++i)
+					insertChar(paintChar, i, y1);
 			else
-				for(int i = x2;i <= x1;i++)insertChar(paintChar, i, y1);
+				for(int i = x2; i <= x1; ++i)
+					insertChar(paintChar, i, y1);
 		}
 		else
 		{
 			double slope = (double)(y1 - y2)/(x1 - x2), x_point;
 			insertChar(paintChar, x1, y1);
 			insertChar(paintChar, x1, y1);
-			if(y1 < y2)for(int i = y1 + 1;i < y2;i++)
-			{
-				x_point = (double)((i - y1) / slope) + x1;
-				if(x_point - Math.floor(x_point) < 0.5)x_point = Math.floor(x_point);
-				else x_point = Math.ceil(x_point);
-				insertChar(paintChar, (int)x_point, i);
-			}
-			else for(int i = y2 + 1;i < y1;i++)
-			{
-				x_point = (double)((i - y1) / slope) + x1;
-				if(x_point - Math.floor(x_point) < 0.5)x_point = Math.floor(x_point);
-				else x_point = Math.ceil(x_point);
-				insertChar(paintChar, (int)x_point, i);
-			}
+			if(y1 < y2)
+				for(int i = y1 + 1; i < y2; ++i)
+				{
+					x_point = (double)((i - y1) / slope) + x1;
+					if(x_point - Math.floor(x_point) < 0.5)
+						x_point = Math.floor(x_point);
+					else
+						x_point = Math.ceil(x_point);
+					insertChar(paintChar, (int)x_point, i);
+				}
+			else
+				for(int i = y2 + 1;i < y1;i++)
+				{
+					x_point = (double)((i - y1) / slope) + x1;
+					if(x_point - Math.floor(x_point) < 0.5)
+						x_point = Math.floor(x_point);
+					else
+						x_point = Math.ceil(x_point);
+					insertChar(paintChar, (int)x_point, i);
+				}
 		}
 	}
 	
@@ -255,10 +282,14 @@ public class Canvas {
 			double equation = Math.sqrt((1 - (Math.pow(i - centerX, 2) / Math.pow(majorAxis, 2))) * Math.pow(minorAxis, 2));
 			double y1 = centerY + equation;
 			double y2 = centerY - equation;
-			if(y1 - Math.floor(y1) < 0.5)y1 = Math.floor(y1);
-			else y1 = Math.ceil(y1);
-			if(y2 - Math.floor(y2) < 0.5)y2 = Math.floor(y2);
-			else y2 = Math.ceil(y2);
+			if(y1 - Math.floor(y1) < 0.5)
+				y1 = Math.floor(y1);
+			else
+				y1 = Math.ceil(y1);
+			if(y2 - Math.floor(y2) < 0.5)
+				y2 = Math.floor(y2);
+			else
+				y2 = Math.ceil(y2);
 			insertChar(paintChar, i, (int)y1);
 			insertChar(paintChar, i, (int)y2);
 		}
@@ -271,10 +302,14 @@ public class Canvas {
 			double equation = Math.sqrt((1 - (Math.pow(i - centerX, 2) / Math.pow(majorAxis, 2))) * Math.pow(minorAxis, 2));
 			double y1 = centerY + equation;
 			double y2 = centerY - equation;
-			if(y1 - Math.floor(y1) < 0.5)y1 = Math.floor(y1);
-			else y1 = Math.ceil(y1);
-			if(y2 - Math.floor(y2) < 0.5)y2 = Math.floor(y2);
-			else y2 = Math.ceil(y2);
+			if(y1 - Math.floor(y1) < 0.5)
+				y1 = Math.floor(y1);
+			else
+				y1 = Math.ceil(y1);
+			if(y2 - Math.floor(y2) < 0.5)
+				y2 = Math.floor(y2);
+			else
+				y2 = Math.ceil(y2);
 			for(int j = (int)y2; j <= (int)y1; ++j)
 				insertChar(paintChar, i, j);
 		}
@@ -287,10 +322,14 @@ public class Canvas {
 			double equation = Math.sqrt((1 - (Math.pow(i - centerY, 2) / Math.pow(minorAxis, 2))) * Math.pow(majorAxis, 2));
 			double x1 = centerX + equation;
 			double x2 = centerX - equation;
-			if(x1 - Math.floor(x1) < 0.5)x1 = Math.floor(x1);
-			else x1 = Math.ceil(x1);
-			if(x2 - Math.floor(x2) < 0.5)x2 = Math.floor(x2);
-			else x2 = Math.ceil(x2);
+			if(x1 - Math.floor(x1) < 0.5)
+				x1 = Math.floor(x1);
+			else
+				x1 = Math.ceil(x1);
+			if(x2 - Math.floor(x2) < 0.5)
+				x2 = Math.floor(x2);
+			else
+				x2 = Math.ceil(x2);
 			insertChar(paintChar, (int)x1, i);
 			insertChar(paintChar, (int)x2, i);
 		}
@@ -303,10 +342,14 @@ public class Canvas {
 			double equation = Math.sqrt((1 - (Math.pow(i - centerY, 2) / Math.pow(minorAxis, 2))) * Math.pow(majorAxis, 2));
 			double x1 = centerX + equation;
 			double x2 = centerX - equation;
-			if(x1 - Math.floor(x1) < 0.5)x1 = Math.floor(x1);
-			else x1 = Math.ceil(x1);
-			if(x2 - Math.floor(x2) < 0.5)x2 = Math.floor(x2);
-			else x2 = Math.ceil(x2);
+			if(x1 - Math.floor(x1) < 0.5)
+				x1 = Math.floor(x1);
+			else
+				x1 = Math.ceil(x1);
+			if(x2 - Math.floor(x2) < 0.5)
+				x2 = Math.floor(x2);
+			else
+				x2 = Math.ceil(x2);
 			for(int j = (int)x2; j <= (int)x1; ++j)
 				insertChar(paintChar, j, i);
 		}
