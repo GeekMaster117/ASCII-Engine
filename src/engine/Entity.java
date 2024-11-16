@@ -451,16 +451,15 @@ public class Entity
 				this.setSimXPosition(this.getSimXPosition() + (this.getHorVelocity() * timeSeconds));
 				this.setSimYPosition(this.getSimYPosition() + (this.getVerVelocity() * timeSeconds));
 				
-				if((this.getSimXPosition() > this.getXPosition() && (int) Math.floor(this.getSimXPosition()) != this.getXPosition())
-						||
-						(this.getSimXPosition() < this.getXPosition() && (int) Math.ceil(this.getSimXPosition()) != this.getXPosition()))
-				{
-					this.setXPosition((int) this.getSimXPosition());
-				}
-				if((this.getSimYPosition() > this.getYPosition() && (int) Math.floor(this.getSimYPosition()) != this.getYPosition())
-						||
-						(this.getSimYPosition() < this.getYPosition() && (int) Math.ceil(this.getSimYPosition()) != this.getYPosition()))
-							this.setYPosition((int) this.getSimYPosition());
+				if(this.getSimXPosition() > this.getXPosition())
+					this.setXPosition((int) Math.floor(this.getSimXPosition()));
+				else
+					this.setXPosition((int) Math.ceil(this.getSimXPosition()));
+				
+				if(this.getSimYPosition() > this.getYPosition())
+					this.setYPosition((int) Math.floor(this.getSimYPosition()));
+				else
+					this.setYPosition((int) Math.ceil(this.getSimYPosition()));
 			}
 			this.entitySimulation = null;
 		});
