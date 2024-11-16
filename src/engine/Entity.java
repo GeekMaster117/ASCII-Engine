@@ -343,10 +343,25 @@ public class Entity
 		return false;
 	}
 	
+	public void bounceOf(Entity en)
+	{
+		if((this.detectCollisionUp(en) && this.getVerVelocity() < 0) 
+				|| 
+				(this.detectCollisionDown(en) && this.getVerVelocity() > 0))
+			this.setVerVelocity(-this.getVerVelocity());
+		if((this.detectCollisionLeft(en) && this.getHorVelocity() < 0) 
+				|| 
+				(this.detectCollisionRight(en) && this.getHorVelocity() > 0))
+			this.setHorVelocity(-this.getHorVelocity());
+	}
+	
 	public boolean undoClipping(Entity en, int maxTries, boolean resetIfFailed)
 	{
 		if(!this.detectClipping(en))
 			return true;
+		
+		this.stopSimulation();
+		
 		int prevX = this.getXPosition(), prevY = this.getYPosition();
 		double angle = Math.atan2(this.getYPosition() - en.getYPosition(), this.getXPosition() - en.getXPosition());
 		angle = Math.toDegrees(angle);
@@ -358,7 +373,10 @@ public class Entity
             {
             	this.setXPosition(this.getXPosition() + 1);
             	if(!this.detectClipping(en))
+            	{
+            		this.startSimluation();
             		return true;
+            	}
             }
         }
 		else if (angle >= 22.5 && angle < 67.5)
@@ -368,7 +386,10 @@ public class Entity
 				this.setXPosition(this.getXPosition() - 1);
 				this.setYPosition(this.getYPosition() + 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		else if (angle >= 67.5 && angle < 112.5)
@@ -377,7 +398,10 @@ public class Entity
 			{
 				this.setYPosition(this.getYPosition() + 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		else if (angle >= 112.5 && angle < 157.5)
@@ -387,7 +411,10 @@ public class Entity
 				this.setXPosition(this.getXPosition() + 1);
 				this.setYPosition(this.getYPosition() + 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		else if (angle >= 157.5 && angle < 202.5)
@@ -396,7 +423,10 @@ public class Entity
 			{
 				this.setXPosition(this.getXPosition() - 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		else if (angle >= 202.5 && angle < 247.5)
@@ -406,7 +436,10 @@ public class Entity
 				this.setXPosition(this.getXPosition() + 1);
 				this.setYPosition(this.getYPosition() - 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		else if (angle >= 247.5 && angle < 292.5)
@@ -415,7 +448,10 @@ public class Entity
 			{
 				this.setYPosition(this.getYPosition() - 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		else if (angle >= 292.5 && angle < 337.5)
@@ -425,7 +461,10 @@ public class Entity
 				this.setXPosition(this.getXPosition() - 1);
 				this.setYPosition(this.getYPosition() - 1);
 				if(!this.detectClipping(en))
-            		return true;
+				{
+					this.startSimluation();
+					return true;
+				}
 			}
         }
 		if(resetIfFailed)
@@ -433,6 +472,8 @@ public class Entity
 			this.setXPosition(prevX);
 			this.setYPosition(prevY);
 		}
+		
+		this.startSimluation();
 		return false;
 	}
 	

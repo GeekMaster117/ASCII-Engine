@@ -31,23 +31,11 @@ public class Example {
 		{
 			background.clearCanvas();
 			
-			if(box.detectClipping(wall1))
-			{
-				box.stopSimulation();
-				box.undoClipping(wall1, 6, false);
-				box.startSimluation();
-			}
-			else if(box.detectClipping(wall2))
-			{
-				box.stopSimulation();
-				box.undoClipping(wall2, 6, false);
-				box.startSimluation();
-			}
+			box.undoClipping(wall1, 6, false);
+			box.undoClipping(wall2, 6, false);
 			
-			if(box.detectCollisionLeft(wall1))
-				box.setHorVelocity(Math.abs(box.getHorVelocity()));
-			else if(box.detectCollisionRight(wall2))
-				box.setHorVelocity(-Math.abs(box.getHorVelocity()));
+			box.bounceOf(wall1);
+			box.bounceOf(wall2);
 			
 			Entity.displayEntities(arr, background);
 			console.preRefresh(background);
