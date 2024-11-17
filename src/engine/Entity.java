@@ -510,6 +510,7 @@ public class Entity
 			}
 			this.entitySimulation = null;
 		});
+		this.entitySimulation.setName("Entity Simulation");
 		this.entitySimulation.start();
 	}
 	
