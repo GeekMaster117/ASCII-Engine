@@ -355,6 +355,12 @@ public class Entity
 			this.setHorVelocity(-this.getHorVelocity());
 	}
 	
+	public void bounceOfMultiple(Entity[] en)
+	{
+		for(int i = 0; i < en.length; ++i)
+			this.bounceOf(en[i]);
+	}
+	
 	public boolean undoClipping(Entity en, int maxTries, boolean resetIfFailed)
 	{
 		if(!this.detectClipping(en))
